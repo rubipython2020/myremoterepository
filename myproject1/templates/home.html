@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{% block abc %}
+<div class="container" >
+<center>
+<div class="row">
+    <div class="offset-md-3 col-md-6">
+        <a href="{% url 'create' %}" class="btn btn-primary btn-lg" style="margin-top: 200px">Submit</a>
+        <a href="{% url 'create'  %}" class="btn btn-success btn-lg" style="margin-top: 200px">Update</a>
+        <a href="{% url 'create' %}" class="btn btn-warning btn-lg" style="margin-top: 200px">Retrive</a>
+        <a href="{% url 'create'  %}" class="btn btn-danger btn-lg" style="margin-top: 200px">Delete</a>
+
+    </div>
+
+</div>
+    </center>
+</div>
+{% endblock %}
+</body>
+</html>

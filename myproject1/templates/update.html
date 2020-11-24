@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    {% include 'boot.html' %}
+</head>
+<body>
+
+<div class="jumbotron">
+<div class="container">
+<div class="row">
+<div class="offset-md-3 col-md-6">
+<form method="POST" action="{% url 'update_view_save' employeedata.id %}">
+    {% csrf_token %}
+<h3 class="text-center">Employee Entry</h3>
+<label>Enter Your First Name </label>
+<input type="text" name="fname" class="form-control" value="{{ employeedata.fname }}">
+<label>Enter Your Last Name </label>
+<input type="text" name="lname" class="form-control" value="{{ employeedata.lname }}">
+<label>Enter Your Mobile Name </label>
+<input type="number" name="mobile" class="form-control" value="{{ employeedata.mobile }}">
+<label>Enter Your Email ID  </label>
+<input type="email" name="email" class="form-control" value="{{ employeedata.email }}">
+<label>Enter Your Department </label>
+<input type="text" name="dept" class="form-control" value="{{ employeedata.dept }}">
+<label>Enter Your Address </label>
+<textarea type="text" name="address" class="form-control" value="{{ employeedata.address }}"></textarea>
+<center>
+<input type="submit"  class="btn btn-success" value="Submit" style="margin-top: 30px">
+</center>
+</form>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

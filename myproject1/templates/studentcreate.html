@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'boot.html' %}
+</head>
+<body>
+{% block abc %}
+<div class="jumbotron">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<form method="POST">
+    {% csrf_token %}
+<h3 class="text-center">Employee Entry</h3>
+<label>Enter Your First Name </label>
+<input type="text" name="fname" class="form-control">
+<label>Enter Your Last Name </label>
+<input type="text" name="lname" class="form-control">
+<label>Enter Your Mobile Name </label>
+<input type="number" name="mobile" class="form-control">
+<label>Enter Your Email ID  </label>
+<input type="email" name="email" class="form-control">
+<label>Enter Your Department </label>
+<input type="text" name="dept" class="form-control">
+<label>Enter Your Address </label>
+<textarea type="text" name="address" class="form-control"></textarea>
+<center>
+<input type="submit"  class="btn btn-success" value="Submit" style="margin-top: 30px">
+</center>
+</form>
+</div>
+<div class="col-md-8">
+    <h3 class="text-center">Employee Details </h3>
+
+
+
+
+    <table class="table">
+    <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Mobile Number</th>
+    <th>Email ID</th>
+    <th>Department</th>
+    <th>Address</th>
+
+    </thead>
+        <tbody>
+        {% for i in employeedata %}
+            <tr>
+            <td>{{ i.fname }}</td>
+            <td>{{ i.lname }}</td>
+            <td>{{ i.mobile }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.dept }}</td>
+            <td>{{ i.address }}</td>
+
+            <td>
+                <a href="{% url 'update_view' i.id  %}">
+                    <i class="fa fa-pencil"></i>
+
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'delete' i.id  %}">
+                    <i class="fa fa-trash"></i>
+
+                </a>
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </div>
+
+
+</div>
+
+</div>
+
+</div>
+{% endblock %}
+</body>
+</html>
